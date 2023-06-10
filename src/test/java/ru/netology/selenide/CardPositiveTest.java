@@ -15,9 +15,10 @@ import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class CardPositiveTest {
-    private String getDate(int countDay, String format){
+    private String getDate(int countDay, String format) {
         return LocalDate.now().plusDays(countDay).format(DateTimeFormatter.ofPattern(format));
     }
+
     @ParameterizedTest
     @CsvSource({
             "Екатеринбург, 3, Дмитрий, +79122518775",
@@ -27,7 +28,7 @@ public class CardPositiveTest {
     })
     void shouldRegisterAccount(String city, int correctDate, String name, String phone) {
         String currentDay = getDate(correctDate, "dd.MM.yyy");
-        //Configuration.holdBrowserOpen = true;
+        Configuration.holdBrowserOpen = true;
         open("http://localhost:9999/");
         $("[data-test-id=city] input").setValue(city);
         $("[data-test-id=date] [type=tel]").sendKeys(Keys.chord(Keys.LEFT_CONTROL, "a"), Keys.DELETE);
