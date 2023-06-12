@@ -175,7 +175,7 @@ public class CardNegativeTest {
             "Дмитрий"
     })
     void invalidPhone(String phone) {
-        String currentDay = getDate(4, "dd.MM.yyy");
+        String currentDay = getDate(4, "dd.MM.yyyy");
         open("http://localhost:9999/");
         $("[data-test-id=city] input").setValue("Екатеринбург");
         $("[data-test-id=date] [type=tel]").sendKeys(Keys.chord(Keys.LEFT_CONTROL, "a"), Keys.DELETE);

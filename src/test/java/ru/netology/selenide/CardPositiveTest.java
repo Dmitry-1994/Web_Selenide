@@ -27,7 +27,7 @@ public class CardPositiveTest {
             "Ростов-на-Дону, 365, Дмитрий-Тарасов Алексеевич, +99999999999"
     })
     void shouldRegisterAccount(String city, int correctDate, String name, String phone) {
-        String currentDay = getDate(correctDate, "dd.MM.yyy");
+        String currentDay = getDate(correctDate, "dd.MM.yyyy");
         Configuration.holdBrowserOpen = true;
         open("http://localhost:9999/");
         $("[data-test-id=city] input").setValue(city);
